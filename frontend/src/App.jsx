@@ -10,7 +10,7 @@ const App = () => {
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const fetchFeedbacks = async () => {
-    const res = await fetch('/api/feedback')
+    const res = await fetch('https://feedback-api-6kaf.onrender.com/api/feedback')
     const data = await res.json()
     setFeedbacks(data)
   }
@@ -18,7 +18,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
-    await fetch('/api/feedback', {
+    await fetch('https://feedback-api-6kaf.onrender.com/api/feedback', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(form),
